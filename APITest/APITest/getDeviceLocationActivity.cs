@@ -27,7 +27,7 @@ namespace APITest
 
             //txtData.Text = data;
 
-            testButton.Click += alertDisplay;
+            testButton.Click += AlertDisplay;
 
             backButton.Click += delegate
             {
@@ -35,7 +35,7 @@ namespace APITest
             };
         }
 
-        private void alertDisplay(object sender, EventArgs e)
+        private void AlertDisplay(object sender, EventArgs e)
         {
             AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
             alertDialog.SetTitle("Alert");

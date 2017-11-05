@@ -21,10 +21,10 @@ namespace APITest
             SetContentView(Resource.Layout.Main);
 
             // Get the latitude/longitude EditBox and button resources:
-            EditText latitude = FindViewById<EditText>(Resource.Id.latText);
-            EditText longitude = FindViewById<EditText>(Resource.Id.longText);
-            Button button = FindViewById<Button>(Resource.Id.getWeatherButton);
-            Button swapButton = FindViewById<Button>(Resource.Id.goToLocationPage);
+            var latitude = FindViewById<EditText>(Resource.Id.latText);
+            var longitude = FindViewById<EditText>(Resource.Id.longText);
+            var button = FindViewById<Button>(Resource.Id.getWeatherButton);
+            var swapButton = FindViewById<Button>(Resource.Id.goToLocationPage);
 
             // When the user clicks the button
             button.Click += async (sender, e) => {
