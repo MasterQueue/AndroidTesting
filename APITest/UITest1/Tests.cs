@@ -29,7 +29,7 @@ namespace UITest1
         [Test]
         public void AppLaunches()
         {
-            app.Screenshot("First screen.");
+            app.Repl();
         }
     }
 }
