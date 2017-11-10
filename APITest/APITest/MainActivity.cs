@@ -34,11 +34,11 @@ namespace APITest
                              latitude.Text +
                              "&lng=" +
                              longitude.Text +
-                             "&username=demo";
+                             "&username=pietiserniet";
 
                 // Fetch the weather information asynchronously, parse the results, then update the screen:
                 JsonValue json = await FetchWeatherAsync(url);
-                ParseAndDisplay (json);
+                ParseAndDisplay(json);
             };
 
             // When the user clicks the button
@@ -47,6 +47,18 @@ namespace APITest
                 //nextActivity.PutExtra("data",editData.Text);
                 StartActivity(nextActivity);
             };
+        }
+
+        private void ErrorMessage()
+        {
+            AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+            alertDialog.SetTitle("Alert");
+            alertDialog.SetMessage("This is an alert dialog for testing purposes");
+            alertDialog.SetNeutralButton("OK", delegate
+            {
+                alertDialog.Dispose();
+            });
+            alertDialog.Show();
         }
 
         // Gets weather data from the passed URL.
@@ -67,6 +79,15 @@ namespace APITest
                     JsonValue jsonDoc = await Task.Run(() => JsonObject.Load(stream));
                     Console.Out.WriteLine("Response: {0}", jsonDoc.ToString());
 
+                    //try catch van maken om app niet te laten crashen on exception
+                    //if (String.IsNullOrEmpty(jsonDoc["status"]))
+                    //{
+                    //    ErrorMessage();
+                    //}
+                    //else
+                    //{
+                    //    Console.Out.WriteLine("Ja het werkt niet LEL");
+                    //}
                     // Return the JSON document:
                     return jsonDoc;
                 }
